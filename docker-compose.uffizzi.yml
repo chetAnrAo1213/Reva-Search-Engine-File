@@ -1,8 +1,17 @@
+version: "3.8"
+
 services:
   meilisearch:
     image: docker.io/chetanrao792/meilisearch:latest
     ports:
       - "7700:7700"
     environment:
-      - MEILI_MASTER_KEY=
-      - MEILI_ENV=development
+      # Set to "development" for browser access without key
+      # Set to "production" for API key required
+      - APP_MODE=development
+
+      # Production mode API key (ignored in development mode)
+      - MEILI_MASTER_KEY=masterKey123
+
+      # Dynamically configure MeiliSearch based on mode
+      - MEILI_ENV=${APP_MODE}
