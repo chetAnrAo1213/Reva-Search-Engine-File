@@ -1,9 +1,0 @@
-version: "3.8"
-
-services:
-  meilisearch:
-    image: getmeili/meilisearch:latest
-    ports:
-      - "7700:7700"
-    environment:
-      - MEILI_ENV=development   # ✅ allows browser access without API key
